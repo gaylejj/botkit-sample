@@ -1,6 +1,6 @@
 name: sample wit bot
 description: sample bot
 config:
-  - name: WIT.AI KEY
+  - name: WIT_TOKEN
     friendly_name: Wit AI Key
     info: Get from Wit.AI console
