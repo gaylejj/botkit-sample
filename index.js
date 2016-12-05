@@ -66,14 +66,15 @@ controller.hears(['.*'],'direct_message,direct_mention,mention',function(bot, me
                 var searchTerm = firstEntityValue(entities, 'searchTerm');
                 console.log(searchTerm);
                 if (searchTerm) {
-        			var baseURL = "http://cheetah-service.sea.bowie.getty.im/"
-        			var pathBase = "search/image/"
-        			var parameters = "?family=creative&sort=best&imageSize=comp&size=1";
-        			request(baseURL + pathBase + searchTerm + parameters, function(error, response, body) {
-         				console.log(body);
-         				var url = JSON.parse(body)[0];
-                		bot.reply(message, url);
-       			 	});
+                  bot.reply(message, "searching for " + searchTerm)
+        			// var baseURL = "http://cheetah-service.sea.bowie.getty.im/"
+        			// var pathBase = "search/image/"
+        			// var parameters = "?family=creative&sort=best&imageSize=comp&size=1";
+        			// request(baseURL + pathBase + searchTerm + parameters, function(error, response, body) {
+         		// 		console.log(body);
+         		// 		var url = JSON.parse(body)[0];
+           //      		bot.reply(message, url);
+       			 // 	});
       			}
             }).catch(console.error);
             // wit.message(config.token, message.text, function(err, res) {
