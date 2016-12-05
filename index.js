@@ -28,7 +28,7 @@ var controller = Botkit.slackbot({
 });
 
 var bot = controller.spawn({
-    token: process.env.token
+    token: process.env.SLACK_TOKEN
 }).startRTM();
 
 // controller.hears(['hello', 'hi'], 'direct_message,direct_mention,mention', function(bot, message) {
@@ -102,7 +102,7 @@ const accessToken = (() => {
   //   console.log('usage: node search.js <wit-access-token>');
   //   process.exit(1);
   // }
-  return process.env.witToken;
+  return process.env.WIT_TOKEN;
 })();
 
 const firstEntityValue = (entities, entity) => {
