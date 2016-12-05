@@ -13,12 +13,6 @@ try {
   interactive = require('node-wit').interactive;
 }
 
-if (!process.env.token) {
-    console.log('Error: Specify token in environment');
-    process.exit(1);
-}
-
-
 var Botkit = require('./node_modules/botkit/lib/Botkit.js');
 var os = require('os');
 // var Search = require('./search.js')
