@@ -4,3 +4,6 @@ config:
   - name: WIT_TOKEN
     friendly_name: Wit AI Key
     info: Get from Wit.AI console
+  - name: API_KEY
+    friendly_name: Api Key
+    info: for web calls
