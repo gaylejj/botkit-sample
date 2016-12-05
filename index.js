@@ -79,6 +79,8 @@ controller.hears(['.*'],'direct_message,direct_mention,mention',function(bot, me
                 };
         			request(options, function(error, response, body) {
          				console.log(body);
+                console.log(response);
+                console.log(error);
          				var url = JSON.parse(body)[0];
                 		bot.reply(message, url);
        			 	});
