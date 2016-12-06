@@ -68,21 +68,29 @@ controller.hears(['.*'],'direct_message,direct_mention,mention',function(bot, me
                 if (searchTerm) {
                 
                   // bot.reply(message, "searching for " + searchTerm)
-        			var baseURL = "http://cheetah-service.sea.bowie.getty.im/"
-        			var pathBase = "search/image/"
-        			var parameters = "?family=creative&sort=best&imageSize=comp&size=1";
+        			var baseURL = "https://api.gettyimages.com/v3/"
+        			var pathBase = "search/images/creative"
+        			var parameters = "?sort_order=best_match&page=1&page_size=1&fields=comp&phrase=";
+              //https://api.gettyimages.com/v3/search/images/creative?fields=comp&page=1&page_size=1&phrase=puppies
               var options = {
-                  url: baseURL + pathBase + searchTerm + parameters,
+                  url: baseURL + pathBase + parameters + searchTerm,
                   headers: {
                   'Api-Key': process.env.API_KEY
                   }
                 };
+                console.log(options)
         			request(options, function(error, response, body) {
-         				console.log(body);
-                console.log(response);
-                console.log(error);
-         				var url = JSON.parse(body)[0];
-                		bot.reply(message, url);
+         				// console.log(body);
+             //    console.log(response);
+             //    console.log(error);
+         				var json = JSON.parse(body);
+                console.log(json);
+                var images = json["images"];
+                var first = images[0];
+                var display_sizes = first["display_sizes"];
+                var first_size = display_sizes[0];
+                var uri = first_size["uri"];
+                		bot.reply(message, uri);
        			 	});
       			}
             }).catch(console.error);

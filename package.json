@@ -13,6 +13,5 @@
     "botkit": "^0.4.2",
     "botkit-middleware-witai": "0.0.2",
     "node-wit": "^4.2.0",
-    "request": "2.79.1"
   }
 }
